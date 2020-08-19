@@ -11,8 +11,13 @@
     "nodemon": "^2.0.4"
   },
   "scripts": {
-      "server": "node -r esm server/index.js",
-      "start": "nodemon -r esm server/index.js",
-      "test":"echo \"Error: No tests specified\" && exit 1"
+    "server": "node -r esm server/index.js",
+    "start": "nodemon -r esm server/index.js",
+    "build": "webpack --mode production",
+    "test": "echo \"Error: No tests specified\" && exit 1"
+  },
+  "devDependencies": {
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
   }
 }
