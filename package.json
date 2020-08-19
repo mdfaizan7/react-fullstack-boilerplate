@@ -14,6 +14,7 @@
   },
   "scripts": {
     "server": "node -r esm server/index.js",
+    "dev": "webpack --mode development && nodemon -r esm server/index.js",
     "start": "nodemon -r esm server/index.js",
     "build": "webpack --mode production",
     "test": "echo \"Error: No tests specified\" && exit 1"
@@ -23,6 +24,7 @@
     "@babel/preset-env": "^7.11.0",
     "@babel/preset-react": "^7.10.4",
     "babel-loader": "^8.1.0",
+    "html-webpack-plugin": "^4.3.0",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12"
   }
