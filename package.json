@@ -1,6 +1,18 @@
 {
-  "name": "MERN Biolerplate",
+  "name": "mern-boilerplate",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "repository": "git@github.com:mdfaizan7/MERN-boilerplate.git",
+  "author": "mdfaizan7 <faizaanazim@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "esm": "^3.2.25",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.4"
+  },
+  "scripts": {
+      "server": "node -r esm server/index.js",
+      "start": "nodemon -r esm server/index.js",
+      "test":"echo \"Error: No tests specified\" && exit 1"
+  }
 }
