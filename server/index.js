@@ -11,13 +11,13 @@ const HTML_FILE = path.join(DIST_DIR, 'index.html')
 app.use(express.static(DIST_DIR))
 
 app.get('/api/greet', (req, res) => {
-	res.status(200).json({ greet: 'React' })
+  res.status(200).json({ greet: 'React' })
 })
 
 app.listen(port, () => {
-	console.log('App is running on port:', port)
+  console.log('App is running on port:', port)
 })
 
 app.get('/*', (req, res) => {
-	res.sendFile(HTML_FILE)
+  res.sendFile(HTML_FILE)
 })
