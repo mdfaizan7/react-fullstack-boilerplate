@@ -2,6 +2,23 @@
 
 > This is a fullstack implementation with webpack in React, Express.js, and Node.js.
 
+
+## File Structure
+
+```
+server/
+  index.js
+client/
+  index.js
+  App.js
+  App.scss
+  ...
+LICENSE
+package.json
+webpack.config.js
+...
+```
+
 ## Clone or Download
 
 ```
@@ -20,17 +37,31 @@ With Npm:
 npm install
 ```
 
-## File Structure
+## To start the development server
+With Yarn:
+```
+yarn dev
+```
 
+With Npm:
 ```
-server/
-  index.js
-client/
-  index.js
-  App.js
-  ...
-LICENSE
-package.json
-webpack.config.js
-...
+npm run dev
 ```
+
+Now you can access your website in ```http://localhost:3000```
+
+## Linting
+
+#### Check for Linting errors:
+```
+yarn lint
+  or
+npm run lint
+```
+#### Fix the linting errors:
+```
+yarn lint-fix
+  or
+npm run lint-fix
+```
+
