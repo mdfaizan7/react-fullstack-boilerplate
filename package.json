@@ -1,7 +1,7 @@
 {
 	"name": "react-fullstack-boilerplate",
 	"version": "1.0.0",
-	"main": "index.js",
+	"main": "server/index.js",
 	"repository": "https://github.com/mdfaizan7/react-fullstack-boilerplate.git",
 	"author": "mdfaizan7 <faizaanazim@gmail.com>",
 	"license": "MIT",
@@ -21,7 +21,7 @@
 		"server": "node -r esm server",
 		"dev": "concurrently \"yarn dev:server\" \"yarn dev:client\"",
 		"dev:server": "nodemon -r esm server/index.js",
-		"dev:client": "webpack --mode development --devtool inline-source-map --hot --watch",
+		"dev:client": "webpack-dev-server --open --host 0.0.0.0",
 		"build": "webpack --mode production --optimize-minimize",
 		"lint": "eslint .",
 		"lint-fix": "eslint . --fix",
@@ -50,6 +50,7 @@
 		"uglifyjs-webpack-plugin": "^2.2.0",
 		"url-loader": "^4.1.0",
 		"webpack": "^4.44.1",
-		"webpack-cli": "^3.3.12"
+		"webpack-cli": "^3.3.12",
+		"webpack-dev-server": "^3.11.0"
 	}
 }

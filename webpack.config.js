@@ -7,7 +7,13 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
   devServer: {
-    contentBase: './dist'
+    contentBase: './dist',
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3000',
+        secure: false
+      }
+    }
   },
   entry: './client/index.js',
   output: {
