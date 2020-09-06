@@ -1,8 +1,8 @@
 {
-	"name": "mern-boilerplate",
+	"name": "react-fullstack-boilerplate",
 	"version": "1.0.0",
-	"main": "index.js",
-	"repository": "git@github.com:mdfaizan7/MERN-boilerplate.git",
+	"main": "server/index.js",
+	"repository": "https://github.com/mdfaizan7/react-fullstack-boilerplate.git",
 	"author": "mdfaizan7 <faizaanazim@gmail.com>",
 	"license": "MIT",
 	"dependencies": {
@@ -16,11 +16,12 @@
 		"react-router-dom": "^5.2.0"
 	},
 	"scripts": {
-		"server": "node -r esm server/index.js",
+		"deploy": "cross-env NODE_ENV=production node server",
+		"predeploy": "webpack --mode production --optimize-minimize",
+		"server": "node server",
 		"dev": "concurrently \"yarn dev:server\" \"yarn dev:client\"",
 		"dev:server": "nodemon -r esm server/index.js",
-		"dev:client": "webpack --mode development --devtool inline-source-map --hot --watch",
-		"build": "webpack --mode production",
+		"dev:client": "webpack-dev-server --open --host 0.0.0.0",
 		"lint": "eslint .",
 		"lint-fix": "eslint . --fix",
 		"test": "echo \"Error: No tests specified\" && exit 1"
@@ -30,7 +31,9 @@
 		"@babel/preset-env": "^7.11.0",
 		"@babel/preset-react": "^7.10.4",
 		"babel-loader": "^8.1.0",
+		"compression-webpack-plugin": "^5.0.2",
 		"concurrently": "^5.3.0",
+		"cross-env": "^7.0.2",
 		"css-loader": "^4.2.1",
 		"eslint": "^7.7.0",
 		"eslint-plugin-import": "^2.22.0",
@@ -38,12 +41,14 @@
 		"eslint-plugin-promise": "^4.2.1",
 		"eslint-plugin-react": "^7.20.6",
 		"eslint-plugin-standard": "^4.0.1",
-		"file-loader": "^6.0.0",
 		"html-webpack-plugin": "^4.3.0",
+		"mini-css-extract-plugin": "^0.11.0",
 		"node-sass": "^4.14.1",
 		"sass-loader": "^9.0.3",
-		"style-loader": "^1.2.1",
+		"uglifyjs-webpack-plugin": "^2.2.0",
+		"url-loader": "^4.1.0",
 		"webpack": "^4.44.1",
-		"webpack-cli": "^3.3.12"
+		"webpack-cli": "^3.3.12",
+		"webpack-dev-server": "^3.11.0"
 	}
 }
