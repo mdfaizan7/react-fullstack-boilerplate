@@ -1,8 +1,8 @@
 {
-	"name": "mern-boilerplate",
+	"name": "react-fullstack-boilerplate",
 	"version": "1.0.0",
 	"main": "index.js",
-	"repository": "git@github.com:mdfaizan7/MERN-boilerplate.git",
+	"repository": "https://github.com/mdfaizan7/react-fullstack-boilerplate.git",
 	"author": "mdfaizan7 <faizaanazim@gmail.com>",
 	"license": "MIT",
 	"dependencies": {
@@ -16,11 +16,13 @@
 		"react-router-dom": "^5.2.0"
 	},
 	"scripts": {
-		"server": "node -r esm server/index.js",
+		"serve": "cross-env NODE_ENV=production node -r esm server",
+		"preserve": "webpack --mode production --optimize-minimize",
+		"server": "node -r esm server",
 		"dev": "concurrently \"yarn dev:server\" \"yarn dev:client\"",
 		"dev:server": "nodemon -r esm server/index.js",
 		"dev:client": "webpack --mode development --devtool inline-source-map --hot --watch",
-		"build": "webpack --mode production",
+		"build": "webpack --mode production --optimize-minimize",
 		"lint": "eslint .",
 		"lint-fix": "eslint . --fix",
 		"test": "echo \"Error: No tests specified\" && exit 1"
@@ -32,6 +34,7 @@
 		"babel-loader": "^8.1.0",
 		"compression-webpack-plugin": "^5.0.2",
 		"concurrently": "^5.3.0",
+		"cross-env": "^7.0.2",
 		"css-loader": "^4.2.1",
 		"eslint": "^7.7.0",
 		"eslint-plugin-import": "^2.22.0",
