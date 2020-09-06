@@ -16,13 +16,12 @@
 		"react-router-dom": "^5.2.0"
 	},
 	"scripts": {
-		"serve": "cross-env NODE_ENV=production node -r esm server",
-		"preserve": "webpack --mode production --optimize-minimize",
-		"server": "node -r esm server",
+		"deploy": "cross-env NODE_ENV=production node server",
+		"predeploy": "webpack --mode production --optimize-minimize",
+		"server": "node server",
 		"dev": "concurrently \"yarn dev:server\" \"yarn dev:client\"",
 		"dev:server": "nodemon -r esm server/index.js",
 		"dev:client": "webpack-dev-server --open --host 0.0.0.0",
-		"build": "webpack --mode production --optimize-minimize",
 		"lint": "eslint .",
 		"lint-fix": "eslint . --fix",
 		"test": "echo \"Error: No tests specified\" && exit 1"
@@ -46,7 +45,6 @@
 		"mini-css-extract-plugin": "^0.11.0",
 		"node-sass": "^4.14.1",
 		"sass-loader": "^9.0.3",
-		"style-loader": "^1.2.1",
 		"uglifyjs-webpack-plugin": "^2.2.0",
 		"url-loader": "^4.1.0",
 		"webpack": "^4.44.1",
