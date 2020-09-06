@@ -1,10 +1,7 @@
-const HtmlWebPackPlugin = require('html-webpack-plugin')
 const path = require('path')
-
-const htmlPlugin = new HtmlWebPackPlugin({
-  template: './client/index.html',
-  filename: './index.html'
-})
+const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 module.exports = {
   devServer: {
@@ -15,7 +12,39 @@ module.exports = {
     path: path.join(__dirname, 'dist'),
     filename: '[name].js'
   },
-  plugins: [htmlPlugin],
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './client/index.html',
+      filename: './index.html'
+    }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('production')
+      }
+    }),
+    new UglifyJsPlugin({
+      uglifyOptions: {
+        mangle: true,
+        compress: {
+          pure_getters: true,
+          unsafe: true,
+          unsafe_comps: true,
+          conditionals: true,
+          unused: true,
+          comparisons: true,
+          sequences: true,
+          dead_code: true,
+          evaluate: true,
+          if_return: true,
+          join_vars: true
+        },
+        output: {
+          comments: false
+        },
+        exclude: [/\.min\.js$/gi]
+      }
+    })
+  ],
   module: {
     rules: [
       {
