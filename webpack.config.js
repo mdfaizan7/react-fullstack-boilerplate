@@ -4,6 +4,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const CompressionPlugin = require('compression-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const WorkboxPlugin = require('workbox-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   devServer: {
@@ -62,6 +64,16 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: '[name].css',
       chunkFilename: '[id].css'
+    }),
+    new WorkboxPlugin.GenerateSW({
+      clientsClaim: true,
+      skipWaiting: true
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: 'client/images', to: 'images' },
+        { from: 'client/manifest', to: 'manifest' }
+      ]
     })
   ],
   module: {
@@ -83,5 +95,8 @@ module.exports = {
         loader: 'url-loader?limit=10000000'
       }
     ]
+  },
+  performance: {
+    hints: false
   }
 }
