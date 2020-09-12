@@ -14,8 +14,8 @@ jobs:
       - uses: actions/checkout@v1
 
       - name: Get yarn cache directory path
-          id: yarn-cache-dir-path
-          run: echo "::set-output name=dir::$(yarn cache dir)"
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
 
       - uses: actions/cache@v1
         id: yarn-cache
@@ -28,6 +28,6 @@ jobs:
       - name: Installing Packages
         if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: yarn install
-        
+
       - name: Test Linting
         run: yarn lint
