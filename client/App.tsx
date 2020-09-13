@@ -5,7 +5,7 @@ import './App.scss'
 import home from './pages/home'
 import page2 from './pages/page2'
 
-const App = () => (
+const App: React.FC = () => (
 	<Router>
 		<Switch>
 			<Route exact path='/' component={home} />

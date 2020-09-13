@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const page2 = () => (
+const page2: React.FC = () => (
 	<div>
 		page 2
 		<br />
