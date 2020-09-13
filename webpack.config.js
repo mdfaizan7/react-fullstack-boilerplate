@@ -17,10 +17,10 @@ module.exports = {
       }
     }
   },
-  entry: './client/index.js',
+  entry: './client/index.tsx',
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: '[name].js'
+    filename: 'bundle.js'
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -79,12 +79,9 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        include: path.resolve(__dirname, 'client'),
-        use: {
-          loader: 'babel-loader'
-        }
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/
       },
       {
         test: /\.s?css$/,
@@ -95,6 +92,9 @@ module.exports = {
         loader: 'url-loader?limit=10000000'
       }
     ]
+  },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js']
   },
   performance: {
     hints: false

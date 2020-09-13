@@ -6,12 +6,12 @@ import home from './pages/home'
 import page2 from './pages/page2'
 
 const App = () => (
-  <Router>
-    <Switch>
-      <Route exact path='/' component={home} />
-      <Route exact path='/2' component={page2} />
-    </Switch>
-  </Router>
+	<Router>
+		<Switch>
+			<Route exact path='/' component={home} />
+			<Route exact path='/2' component={page2} />
+		</Switch>
+	</Router>
 )
 
 export default App
