@@ -15,15 +15,15 @@
 		"react-router-dom": "^5.2.0"
 	},
 	"scripts": {
-		"deploy": "cross-env NODE_ENV=production node server",
+		"serve": "yarn build && cross-env NODE_ENV=production ts-node server",
 		"build-ts": "tsc",
-		"predeploy": "webpack --mode production --optimize-minimize",
+		"build": "webpack --mode production --optimize-minimize",
 		"server": "ts-node server",
-		"dev": "concurrently \"yarn dev:server\" \"yarn dev:client\"",
-		"dev:server": "nodemon --exec ts-node --files server",
-		"dev:client": "webpack-dev-server --open --host 0.0.0.0",
-		"lint": "eslint .",
-		"lint-fix": "eslint . --fix",
+		"dev": "concurrently \"yarn watch-server\" \"yarn watch-client\"",
+		"watch-server": "nodemon --exec ts-node --files --ignore \"./client/\" server",
+		"watch-client": "webpack-dev-server --open --host 0.0.0.0",
+		"lint": "tsc --noEmit && eslint \"**/*.{ts,tsx}\"",
+		"lint-fix": "tsc --noEmit && eslint \"**/*.{ts,tsx}\" --fix",
 		"test": "echo \"Error: No tests specified\" && exit 1"
 	},
 	"devDependencies": {

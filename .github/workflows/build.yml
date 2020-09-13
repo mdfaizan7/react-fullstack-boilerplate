@@ -30,4 +30,4 @@ jobs:
         run: yarn install
 
       - name: Building Files
-        run: yarn predeploy
+        run: yarn build
