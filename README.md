@@ -11,8 +11,8 @@ The primary goal of this project is to provide a stable foundation upon which to
 
 1. [Requirements](#requirements)
 1. [Installation](#installation)
+1. [Continuous Integration](#continuous-integration)
 1. [Running the Project](#running-the-project)
-1. [Continuous Integration (CI)](<#continuous-integration-(ci)>)
 1. [Project Structure](#project-structure)
 1. [Hot Reloading](#hot-reloading)
 1. [Routing](#routing)
@@ -42,6 +42,15 @@ When that's done, install the project dependencies. It is recommended that you u
 $ yarn install # (or `npm install`)
 ```
 
+## Continuous Integration
+
+This project uses Github Actions for CI. There are two tests:
+
+- **Build:** For checking the Build.
+- **Linting:** For linting.
+
+_You can skip the CI builds in any push if you want by adding `[ci skip]` in your commit message._
+
 ## Running the Project
 
 After completing the [installation](#installation) step, you're ready to start the project!
@@ -63,15 +72,6 @@ While developing, you will probably rely mostly on `yarn dev`; however, there ar
 | `serve`         | Builds the file to ./dist and serve them using the server. The full app will start on `localhost:3000`                  |
 | `lint`          | [Lints](http://stackoverflow.com/questions/8503559/what-is-linting) the project for potential errors                    |
 | `lint-fix`      | Lints the project and [fixes all correctable errors](http://eslint.org/docs/user-guide/command-line-interface.html#fix) |
-
-## Continuous Integration (CI)
-
-This project uses Github Actions for CI. There are two tests:
-
-- **Build:** For checking the Build.
-- **Linting:** For linting.
-
-_You can skip the CI builds in any push if you want by adding `[ci skip]` in your commit message._
 
 ## Project Structure
 
